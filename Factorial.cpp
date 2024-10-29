@@ -1,12 +1,12 @@
 /**Arturo Pérez González - 215510
- * Código que, utilizando la recursividad, genera el factorial de un numero ingresado**/
+ * Codigo que, utilizando la recursividad, genera el factorial de un numero ingresado y uso de cuenta de banco**/
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 using namespace std;
 
-/**Función factorial**/
+/**Funcion factorial**/
 float factorial(int x){
     if(x <= 1){
         return 1;
@@ -41,7 +41,7 @@ void InsertarSaldo(C &lista, int s){
 	}
 }
 
-/**Código principal**/
+/**Codigo principal**/
 int main(){
     int opc, cont, cont1;
     C lista = NULL;
@@ -59,14 +59,16 @@ int main(){
         case 1:
             do 
             {
-                /**Inserción del número a factorar**/
+                /**Insercion del número a factorar**/
                 int num;
                 cout << endl << "Ingrese el numero al que desea calcular la factorial: ";
                 cin >> num;
 
-                /**Impresión del resultado**/
+                /**Impresion del resultado**/
                 float NumFact = factorial(num);
                 cout << "El factorial del numero " << num << " es: " << NumFact << endl;
+
+                /**Salida del codigo factorialo**/
                 cout << "Desea seguir usando el codigo factorial? (1.Si / 2.No): ";
                 cin >> cont1;
                 cout << endl;
@@ -74,6 +76,7 @@ int main(){
             break;
         case 2:            
             do{
+                /**Cuenta de banco**/
                 cout << endl << "****Cuenta de banco****" << endl
                 << "1.Consulta de saldo" << endl
                 << "2.Retiro" << endl
@@ -85,10 +88,12 @@ int main(){
                 
                 switch(opc1){
                     case 1:
+                    /**Consulta de saldo**/
                         cout << endl << "Su saldo en su cuenta es: " << sald << endl << endl;
                         InsertarSaldo(lista, sald);
                         break;
                     case 2:
+                    /**Retiros**/
                         cout << "Ingrese la cantidad que desea retirar: ";
                         cin >> ret;
                         cout << endl;
@@ -97,6 +102,7 @@ int main(){
                         InsertarSaldo(lista, sald);
                         break;
                     case 3:
+                    /**Depositos**/
                         cout << "Ingrese la cantidad que desea depositar a su cuenta" << endl;
                         cin >> depo;
                         sald += depo;
@@ -105,6 +111,7 @@ int main(){
                         InsertarSaldo(lista, sald);
                         break;
                     case 0:
+                    /**Salida del codigo de banco**/
                         cout << "Saliendo..." << endl << endl;
                         break;
                     default:
@@ -120,5 +127,6 @@ int main(){
         cin >> cont;
         cout << endl;
     }while(cont == 1);
+    /**Salida del programa**/
     cout << "Ha salido del programa!!";
 }
